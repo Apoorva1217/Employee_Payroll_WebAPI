@@ -8,9 +8,11 @@ namespace BusinessLayer.IServices
 {
     public interface IEmployeeBL
     {
-        
         List<CompanyEmployee> GetAllEmployee();
         
         bool RegisterEmployee(RegisterModel employee);
+
+        bool EditEmployee(UpdateModel updatedEmployee, int EmpId);
+
     }
 }

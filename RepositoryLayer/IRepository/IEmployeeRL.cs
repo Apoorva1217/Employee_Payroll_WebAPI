@@ -8,8 +8,8 @@ namespace RepositoryLayer.IRepository
 {
     public interface IEmployeeRL
     { 
-        
         List<CompanyEmployee> GetAllEmployee();
+        bool EditEmployee(UpdateModel updatedEmployee, int empId);
         bool RegisterEmployee(RegisterModel employee);
     }
 }

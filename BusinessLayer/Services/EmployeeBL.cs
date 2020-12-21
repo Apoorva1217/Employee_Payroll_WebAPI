@@ -40,5 +40,17 @@ namespace BusinessLayer.Services
                 throw e;
             }
         }
+
+        public bool EditEmployee(UpdateModel updatedEmployee, int EmpId)
+        {
+            try
+            {
+                return this.employeeRL.EditEmployee(updatedEmployee, EmpId);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }
