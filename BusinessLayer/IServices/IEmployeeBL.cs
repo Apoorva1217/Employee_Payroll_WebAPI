@@ -14,5 +14,7 @@ namespace BusinessLayer.IServices
 
         bool EditEmployee(UpdateModel updatedEmployee, int EmpId);
 
+        bool Delete(int EmpId);
+
     }
 }

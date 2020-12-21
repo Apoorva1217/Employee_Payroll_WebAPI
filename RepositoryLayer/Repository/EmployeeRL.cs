@@ -121,5 +121,35 @@ namespace RepositoryLayer.Repository
                 throw e;
             }
         }
+
+        /// <summary>
+        /// Delete Employee from Employee Payroll DB
+        /// </summary>
+        /// <param name="EmpId"></param>
+        /// <returns></returns>
+        public bool Delete(int EmpId)
+        {
+            try
+            {
+                CompanyEmployee employee = this.context.Employees.Where(x => x.EmployeeId == EmpId).FirstOrDefault();
+                if (employee != null)
+                {
+                    this.context.Employees.Remove(employee);
+                }
+                int result = this.context.SaveChanges();
+                if (result > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }

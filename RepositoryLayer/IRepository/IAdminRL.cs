@@ -11,6 +11,7 @@ namespace RepositoryLayer.IRepository
         EmployeeModel AdminLogin(AdminModel login);
         
         List<EmployeeModel> GetAllEmployee();
+
         bool RegisterAdmin(RegisterModel admin);
     }
 }
