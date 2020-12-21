@@ -1,16 +1,18 @@
 ﻿using CommonLayer.RequestModel;
 using CommonLayer.ResponseModel;
+using RepositoryLayer.IRepository;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace RepositoryLayer.IRepository
+namespace BusinessLayer.IServices
 {
-    public interface IAdminRL
+    public interface IAdminBL
     {
         EmployeeModel AdminLogin(AdminModel login);
         
         List<EmployeeModel> GetAllEmployee();
+        
         bool RegisterAdmin(RegisterModel admin);
     }
 }

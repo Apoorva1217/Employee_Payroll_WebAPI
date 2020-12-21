@@ -4,12 +4,13 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace RepositoryLayer.IRepository
+namespace BusinessLayer.IServices
 {
-    public interface IEmployeeRL
-    { 
+    public interface IEmployeeBL
+    {
         
         List<CompanyEmployee> GetAllEmployee();
+        
         bool RegisterEmployee(RegisterModel employee);
     }
 }

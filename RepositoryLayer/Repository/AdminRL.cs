@@ -19,6 +19,11 @@ namespace RepositoryLayer.Repository
             this.context = context;
         }
 
+        /// <summary>
+        /// Login Admin
+        /// </summary>
+        /// <param name="login"></param>
+        /// <returns></returns>
         public EmployeeModel AdminLogin(AdminModel login)
         {
             try
@@ -44,6 +49,10 @@ namespace RepositoryLayer.Repository
             }
         }
 
+        /// <summary>
+        /// Get All Employees from Employee Payroll DB
+        /// </summary>
+        /// <returns></returns>
         public List<EmployeeModel> GetAllEmployee()
         {
             try
@@ -61,6 +70,44 @@ namespace RepositoryLayer.Repository
                         ModifiedDateTime = o.ModifiedDateTime
                     })
                     .ToList();
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// Add Employee to the Employee Payroll DB
+        /// </summary>
+        /// <param name="admin"></param>
+        /// <returns></returns>
+        public bool RegisterAdmin(RegisterModel admin)
+        {
+            try
+            {
+                CompanyEmployee adminObject = new CompanyEmployee()
+                {
+                    FirstName = admin.FirstName,
+                    LastName = admin.LastName,
+                    Email = admin.Email,
+                    Password = admin.Password,
+                    PhoneNumber = admin.PhoneNumber,
+                    Role = "Admin",
+                    CreatedDateTime = DateTime.UtcNow,
+                    ModifiedDateTime = null
+                };
+
+                this.context.Employees.Add(adminObject);
+                int result = this.context.SaveChanges();
+                if (result > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             catch (Exception e)
             {
